@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://8d25p1b7u4c5"]
+
+[ext_resource type="Script" path="res://Scripts/CompositionPlinth.gd" id="1_wfrvv"]
+[ext_resource type="PackedScene" uid="uid://cshyyrbbdm6om" path="res://Scenes/Interaction.tscn" id="2_aw8kd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7yfw6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jb02q"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_7yfw6")
+surface_material_override/0 = SubResource("StandardMaterial3D_jb02q")
+script = ExtResource("1_wfrvv")
+
+[node name="Interaction" parent="." instance=ExtResource("2_aw8kd")]
+
+[connection signal="interacted" from="Interaction" to="." method="_on_interaction_interacted"]
